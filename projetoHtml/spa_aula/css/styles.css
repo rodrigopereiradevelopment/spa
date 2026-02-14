@@ -46,29 +46,3 @@ body{
     border-top: 1px solid #e5e7eb;
     color: #6e7280;
 }
-
-/* Quando a tela for menor ou igual a 600px */
-@media screen and (max-width: 600px) {
-    .topbar {
-        flex-direction: column; /* Empilha o título em cima do menu */
-        text-align: center;
-        gap: 10px;
-    }
-
-    .menu {
-        display: flex;
-        flex-wrap: wrap; /* Se os links forem muitos, eles quebram a linha */
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .menu a {
-        margin: 4px; /* Ajusta o espaçamento dos botões no celular */
-        font-size: 14px;
-        padding: 8px 12px; /* Aumenta a área de toque (bom para dedos!) */
-    }
-
-    .conteiner {
-        padding: 10px; /* Reduz a margem lateral no celular */
-    }
-}
