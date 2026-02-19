@@ -53,3 +53,4 @@ window.addEventListener("popstate", router);
 
 // Renderiza a página assim que o site abre pela primeira vez
 router();
+//
