@@ -27,7 +27,38 @@ const pages = {
     `,
 };
 
-const router = () => {
+function setActive(path){
+    document.querySelectorAll("a[data-link]").forEach((a)=>{
+        const isActive = a.getAttribute("href") === path;
+        a.classList.toggle("active", isActive);
+    });
+}
+ 
+function render(){
+    const path = window.location.pathname;
+    const page = pages[path] ?? (() =>`
+       <section  class="card">
+            <h2>Erro 404</h2>
+            <p> Rota não encontrada: <code>${path}</code></p>
+            <p><a href="/" data-link>Voltar ao inicio</a></p>
+       </section>
+    `);
+
+    app.innerHTML = page();
+    setActiveLink(path);
+
+}
+
+function navigateTo(url){
+    history.pushState(null, "", url);
+    render();
+}
+
+//intercepta cliquesnos links do menu
+document.addEventListener("clique")
+
+
+/*const router = () => {
     // 1. Descobre em qual página estamos
     const path = window.location.pathname;
     
@@ -53,4 +84,4 @@ window.addEventListener("popstate", router);
 
 // Renderiza a página assim que o site abre pela primeira vez
 router();
-//
+*/
