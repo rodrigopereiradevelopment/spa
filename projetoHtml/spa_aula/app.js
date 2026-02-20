@@ -24,7 +24,7 @@ const pages = {
     <h2>Exemplo simples de roteamento do flont-end (sem framework).</h2>
     <p>Próximo passo:carregar dados via fetch e criar componentes.</p>
     </section>
-    `,
+    `
 };
 
 function setActive(path){
@@ -37,7 +37,7 @@ function setActive(path){
 function render(){
     const path = window.location.pathname;
     const page = pages[path] ?? (() =>`
-       <section  class="card">
+       <section class="card">
             <h2>Erro 404</h2>
             <p> Rota não encontrada: <code>${path}</code></p>
             <p><a href="/" data-link>Voltar ao inicio</a></p>
@@ -45,7 +45,7 @@ function render(){
     `);
 
     app.innerHTML = page();
-    setActiveLink(path);
+    setActive(path);
 
 }
 
@@ -55,7 +55,22 @@ function navigateTo(url){
 }
 
 //intercepta cliquesnos links do menu
-document.addEventListener("clique")
+document.addEventListener("click", (e) =>{
+    const a = e.target.closest("a[data-link]");
+
+    if(!a)
+        return;
+
+    e.preventDefault();
+
+    navigateTo(a.getAttribute("href"));
+})
+
+//voltar ou avancar do navegador
+window.addEventListener("popstate", render);
+//primeira renderizacao
+render();
+
 
 
 /*const router = () => {
