@@ -17,6 +17,28 @@ const pages = {
         </ul>
         </section>
     `
+     },
+     "/cursos" : () => {
+        const cursos = ["Administração","Contabilidade","Desenvolvimento de sistemas","Edificações","Enfermagem"];
+        return `
+        <section class="card">
+        <h2>Cursos</h2>
+        <ul>
+        ${cursos.map((a)=> `<li> ${a}</li>`).join("")}
+        </ul>
+        </section>
+    `
+    },
+     "/professores" : () => {
+        const professores = ["Mauricio","Simone","Andrei","Sinzomar","Matheus"];
+        return `
+        <section class="card">
+        <h2>Professores</h2>
+        <ul>
+        ${professores.map((a)=> `<li> ${a}</li>`).join("")}
+        </ul>
+        </section>
+    `
     },
     "/sobre": () =>`
     <section class="card">
